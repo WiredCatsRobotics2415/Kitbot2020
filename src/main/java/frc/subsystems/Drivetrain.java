@@ -18,7 +18,7 @@ import frc.robot.*;
 public class Drivetrain extends Subsystem {
   public static final double DEADBAND = 0.05;
 
-  private WPI_TalonSRX frontLeftTalon, backlefttalon, frontRightTalon, backRightTalon;
+  private WPI_TalonSRX frontLeftTalon, backLeftTalon, frontRightTalon, backRightTalon;
 
   public Drivetrain() {
     this.frontLeftTalon = new WPI_TalonSRX(RobotMap.FRONTLEFT_TALON);
@@ -43,8 +43,8 @@ public class Drivetrain extends Subsystem {
       turn = 0;
     }
 
-    this.frontLeftTalon.set(throttle+turn);
-    this.frontRightTalon.set(throttle-turn);
+    this.frontLeftTalon.set(throttle-turn);
+    this.frontRightTalon.set(throttle+turn);
   }
 
   @Override
