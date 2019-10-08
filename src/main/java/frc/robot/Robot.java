@@ -42,7 +42,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
-    drivetrain.drive(gamepad.getRawAxis(1), gamepad.getRawAxis(2));
+    drivetrain.drive(gamepad.getRawAxis(1), gamepad.getRawAxis(4));
   }
 
   /**

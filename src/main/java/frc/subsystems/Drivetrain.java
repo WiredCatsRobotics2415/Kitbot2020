@@ -26,8 +26,8 @@ public class Drivetrain extends Subsystem {
     this.frontRightTalon = new WPI_TalonSRX(RobotMap.FRONTRIGHT_TALON);
     this.backRightTalon = new WPI_TalonSRX(RobotMap.BACKRIGHT_TALON);
 
-    this.frontLeftTalon.setInverted(true);
-    this.backLeftTalon.setInverted(true);
+    this.frontLeftTalon.setInverted(false);
+    this.backLeftTalon.setInverted(false);
     this.frontRightTalon.setInverted(false);
     this.backRightTalon.setInverted(false);
 
