@@ -43,8 +43,8 @@ public class Drivetrain extends Subsystem {
       turn = 0;
     }
 
-    this.frontLeftTalon.set(throttle-turn);
-    this.frontRightTalon.set(throttle+turn);
+    this.frontLeftTalon.set(Math.pow(throttle-turn, 3));
+    this.frontRightTalon.set(Math.pow(throttle+turn, 3));
   }
 
   @Override
