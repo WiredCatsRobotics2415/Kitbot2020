@@ -17,6 +17,7 @@ import frc.robot.*;
 
 public class Drivetrain extends Subsystem {
   public static final double DEADBAND = 0.05;
+  public static final double MOTORMIN = 0.03;
 
   private WPI_TalonSRX frontLeftTalon, backLeftTalon, frontRightTalon, backRightTalon;
 
@@ -36,15 +37,11 @@ public class Drivetrain extends Subsystem {
   }
 
   public void drive(double throttle, double turn) {
-    if(Math.abs(throttle) < DEADBAND) {
-      throttle = 0;
-    }
-    if(Math.abs(turn) < DEADBAND) {
-      turn = 0;
-    }
+    double leftTurn = throttle-turn;
+    double rightTurn = throttle+turn;
 
-    this.frontLeftTalon.set(Math.pow(throttle-turn, 3));
-    this.frontRightTalon.set(Math.pow(throttle+turn, 3));
+    this.frontLeftTalon.set(Math.pow((leftTurn-DEADBAND)/(1-DEADBAND), 3)*(1-MOTORMIN)+MOTORMIN);
+    this.frontRightTalon.set(Math.pow((rightTurn-DEADBAND)/(1-DEADBAND), 3)*(1-MOTORMIN)+MOTORMIN);
   }
 
   @Override
